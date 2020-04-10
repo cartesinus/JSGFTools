@@ -20,9 +20,9 @@
 # @since: 2014/06/02
 
 """
-This file lays out the class structure for a JSGF Grammar. 
+This file lays out the class structure for a JSGF Grammar.
 
-.. module:: JSGFGrammar 
+.. module:: JSGFGrammar
 
 .. moduleauthor:: Pastèque Ho <timothyakho@gmail.com>
 """
@@ -35,7 +35,7 @@ class Disjunction(JSGFExpression):
     """
     Disjunction class stores disjuncts in a list
     """
-    
+
     def __init__(self, disjuncts):
         self.disjuncts = disjuncts
 
@@ -50,7 +50,7 @@ class Disjunction(JSGFExpression):
 
 class Optional(JSGFExpression):
     """
-    Optional class stores either a JSGFExpression, list, or string 
+    Optional class stores either a JSGFExpression, list, or string
     as its optional element
     """
 
@@ -88,7 +88,7 @@ class Rule():
     """
     Rule class, represents a JSGF rule, with a nonterminal name representing the
     left hand side, and a list of possible expansions representing the right
-    hand side. 
+    hand side.
     """
 
     def __init__(self):
@@ -117,14 +117,14 @@ class Rule():
     def __repr__(self):
         return str(self)
 
-        
-class Grammar(): 
+
+class Grammar():
     """
     Grammar class which contains a list for public rules and a list
-    for all rules. 
+    for all rules.
     """
 
-    def __init__(self): 
+    def __init__(self):
         self.rules = []
         self.publicRules = []
 
@@ -143,11 +143,10 @@ class Grammar():
     def getRHS(self, nt):
         """
         returns rule definition
-        
+
         :param nt: Non-Terminal (variable) whose definition to get
         """
         for rule in self.rules:
-            #print 'checking', nt.name, 'and', rule.lhs, type(nt.name), rule.lhs.name
             if rule.lhs.name == nt.name:
                 return rule.rhs
         raise ValueError("Rule not defined for " + str(nt))
@@ -168,4 +167,4 @@ if __name__ == "__main__":
     jgOpt = Optional(jgDisj)
     jgRule = Rule("<greeting>", jgOpt)
 
-    print jgRule
+    print(jgRule)

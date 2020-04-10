@@ -18,7 +18,7 @@
 #   LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 #   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 #   SOFTWARE.
-# @summary: This file generates sentences from a PCFG in JSGF. Run it by entering 
+# @summary: This file generates sentences from a PCFG in JSGF. Run it by entering
 #   in the command line: python ProbabilisticGenerator.py <grammarFile> <numStrings>
 #   where <grammarFile> is the path of the JSGF file, and <numString> is the number
 #   of strings you want to generate
@@ -30,7 +30,7 @@ This file probabilistically generates strings from a JSGF grammar. It takes adva
         expand higher weighted alternatives with greater probability. For sets of \
         alternatives without weights, each alternative is equally likely to be \
         expanded. For optional groups, the elements in the group have a 50% chance \
-        of being expanded. 
+        of being expanded.
 
 It requires two arguments: the path to the JSGF\
         Grammar file, and the number of strings to generate. You can run this on the \
@@ -104,7 +104,7 @@ def processNonTerminal(nt):
 def processDisjunction(disj):
     """
     Chooses either a random disjunct (for alternatives without weights) or
-    a disjunct based on defined weights. 
+    a disjunct based on defined weights.
     """
     if type(disj.disjuncts[0]) is tuple:
         return processRHS(weightedChoice(disj.disjuncts))
@@ -152,7 +152,7 @@ if __name__ == '__main__':
             disjuncts.append(rhs)
         newStartSymbol = gram.Disjunction(disjuncts)
         for i in range(numIterations):
-            print processRHS(newStartSymbol)
+            print(processRHS(newStartSymbol))
         ###
         #else:
             #sys.exit('Bye')
@@ -160,7 +160,7 @@ if __name__ == '__main__':
         startSymbol = grammar.publicRules[0]
         for i in range(numIterations):
             expansions = processRHS(startSymbol.rhs)
-            print expansions
+            print(expansions)
 
 
 

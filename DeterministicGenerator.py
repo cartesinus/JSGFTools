@@ -33,7 +33,7 @@ This will generate all strings defined by the public rules of IdeasNonRecursive.
         It is important that the grammar used by the generator is not recursive (rules \
         should not directly or indirectly reference themselves), so that the generator\
         terminates. Otherwise, you may get a maximum recursion depth exceeded error or \
-        a segmentation fault. 
+        a segmentation fault.
 """
 
 import sys, itertools
@@ -126,7 +126,7 @@ if __name__ == '__main__':
     for rule in grammar.publicRules:
         expansions = processRHS(rule.rhs)
         for expansion in expansions:
-            print expansion
+            print(expansion)
 
 
 
